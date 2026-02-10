@@ -30,7 +30,9 @@ async def startup():
 
 # 정적 파일 서빙 (로컬 개발용)
 app.mount("/static", StaticFiles(directory="static"), name="static")
-app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+if os.path.exists("uploads"):
+    app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+
 
 
 @app.get("/")
