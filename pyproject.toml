@@ -1,0 +1,20 @@
+[project]
+name = "web-dev-deploy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+    "python-multipart",
+    "python-dotenv",
+    "psycopg2-binary",
+    "supabase",
+    "pydantic-settings",
+    "pydantic[email]"
+]
+
+

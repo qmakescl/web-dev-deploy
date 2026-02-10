@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta-Lite | Workshop</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav id="navbar" class="hidden">
+            <div class="container">
+                <h1 id="logo">Insta-Lite</h1>
+                <div class="search-bar">
+                    <input type="text" id="input-search" placeholder="태그 검색 (예: 여행)">
+                </div>
+                <div class="nav-actions">
+                    <button id="btn-create-post" class="btn-primary">글쓰기</button>
+                    <button id="btn-logout" class="btn-secondary">로그아웃</button>
+                </div>
+
+            </div>
+        </nav>
+
+        <main class="container">
+            <!-- Auth Section (Login/Register) -->
+            <section id="auth-section" class="view">
+                <div class="auth-card">
+                    <h2 id="auth-title">로그인</h2>
+                    <form id="auth-form">
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">비밀번호</label>
+                            <input type="password" id="password" required placeholder="••••••••">
+                        </div>
+                        <div class="form-group hidden" id="group-confirm-password">
+                            <label for="confirm-password">비밀번호 확인</label>
+                            <input type="password" id="confirm-password" placeholder="••••••••">
+                        </div>
+                        <button type="submit" id="btn-auth-submit" class="btn-auth">로그인</button>
+                    </form>
+                    <p class="auth-toggle">
+                        <span id="auth-toggle-text">계정이 없으신가요?</span>
+                        <a href="#" id="link-toggle-auth">회원가입</a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Feed Section -->
+            <section id="feed-section" class="view hidden">
+                <div id="post-list">
+                    <!-- Posts will be rendered here -->
+                    <div class="loading">게시물을 불러오는 중...</div>
+                </div>
+            </section>
+
+            <!-- Search Section (Tags) -->
+            <section id="search-section" class="view hidden">
+                <div class="search-header">
+                    <button id="btn-back-to-feed" class="btn-icon">← 피드로 돌아가기</button>
+                    <h2 id="search-tag-title">#태그 결과</h2>
+                </div>
+                <div id="search-post-list"></div>
+            </section>
+        </main>
+
+        <!-- Post Detail Modal (Comments) -->
+        <div id="modal-detail" class="modal hidden">
+            <div class="modal-content">
+                <div id="detail-content">
+                    <!-- Post image and text will be shown here -->
+                </div>
+                <div class="comments-section">
+                    <h4>댓글</h4>
+                    <div id="comments-list" class="comments-list">
+                        <!-- Comments will be rendered here -->
+                    </div>
+                    <form id="comment-form" class="comment-form">
+                        <input type="text" id="input-comment" placeholder="댓글 달기..." required>
+                        <button type="submit" class="btn-primary">게시</button>
+                    </form>
+                </div>
+                <div class="modal-actions" style="margin-top: 1.5rem;">
+                    <button type="button" id="btn-detail-close" class="btn-secondary">닫기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Post Modal -->
+        <div id="modal-post" class="modal hidden">
+
+            <div class="modal-content">
+                <h3>새 게시물 만들기</h3>
+                <form id="post-form">
+                    <div class="form-group">
+                        <label for="post-file">사진 선택</label>
+                        <input type="file" id="post-file" accept="image/*" required>
+                        <div id="image-preview" class="hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content">문구 입력</label>
+                        <textarea id="post-content" rows="4" placeholder="문구 입력 및 #태그..."></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" id="btn-modal-close" class="btn-secondary">취소</button>
+                        <button type="submit" id="btn-post-submit" class="btn-primary">공유하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/app.js" type="module"></script>
+</body>
+
+</html>
